@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "froststruck",
+  "version": "${version}",
+  "name": "Froststruck",
+  "description": "A minecraft mod inspired by the perilous game called Frost punk",
+  "authors": [
+    "Mattwamm"
+  ],
+  "contact": {
+    "repo": "https://github.com/MattWamm/Froststruck"
+  },
+  "license": "MIT",
+  "icon": "assets/froststruck/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.mattwamm.froststruck.client.FroststruckClient"
+    ],
+    "main": [
+      "net.mattwamm.froststruck.Froststruck"
+    ]
+  },
+  "mixins": [
+    "froststruck.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.2"
+  }
+}
