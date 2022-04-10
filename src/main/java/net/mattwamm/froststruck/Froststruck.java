@@ -1,4 +1,16 @@
 package net.mattwamm.froststruck;
 
-public class Froststruck {
+import net.fabricmc.api.ModInitializer;
+
+public class Froststruck implements ModInitializer {
+
+
+
+    @Override
+    public void onInitialize() {
+
+    }
+
+
+
 }
