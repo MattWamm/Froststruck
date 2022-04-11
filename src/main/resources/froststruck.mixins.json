@@ -4,9 +4,6 @@
   "package": "net.mattwamm.froststruck.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "PlayerEntityMixin",
-    "LivingEntityMixin",
-    "EntityNbtMixin"
   ],
   "client": [
   ],
