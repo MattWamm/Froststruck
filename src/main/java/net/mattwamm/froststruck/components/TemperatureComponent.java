@@ -18,12 +18,13 @@ import static java.lang.Math.min;
 
 public class TemperatureComponent implements IntComponent, AutoSyncedComponent{
 
-    private final ComponentKey<TemperatureComponent> KEY = Components.TEMP;
+
+    public final static MinecraftServer server = MinecraftClient.getInstance().getServer();
+    public final static BlockPos spawn = server.getOverworld().getSpawnPos();
+    private final ComponentKey<TemperatureComponent> KEY = EntityComponents.TEMP;
     private PlayerEntity provider;
     private int ambientTemperature;
-
     public TemperatureComponent(PlayerEntity provider) {this.provider = provider;}
-
     @Override public int getValue()
     {
         return this.ambientTemperature ;
@@ -37,7 +38,7 @@ public class TemperatureComponent implements IntComponent, AutoSyncedComponent{
 
     @Override
     public void clientTick() {
-        Double distance = floor(Froststruck.spawn.getSquaredDistance(provider.getPos()));
+        Double distance = floor(spawn.getSquaredDistance(provider.getPos()));
         this.ambientTemperature = (int)min(0, -(floor(distance / 5000)));
     }
 

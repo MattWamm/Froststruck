@@ -20,8 +20,14 @@
     "main": [
       "net.mattwamm.froststruck.Froststruck"
     ],
+    "server": [
+      "net.mattwamm.froststruck.server.FroststruckServer"
+    ],
     "cardinal-components-entity": [
-      "net.mattwamm.froststruck.components.Components"
+      "net.mattwamm.froststruck.components.EntityComponents"
+    ],
+    "cardinal-components-block":[
+      "net.mattwamm.froststruck.components.BlockComponents"
     ]
   },
   "mixins": [
@@ -34,7 +40,8 @@
   },
   "custom": {
     "cardinal-components": [
-      "froststruck:temperature"
+      "froststruck:temperature",
+      "froststruck:blockroom"
     ]
   }
 
