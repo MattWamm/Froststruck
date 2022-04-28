@@ -16,18 +16,6 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(OverworldBiomeCreator.class)
 public class BiomeCreatorMixin {
 
-//    @ModifyVariable(method = "createPlains", at = @At("HEAD"), ordinal = 1)
-//    private static boolean plains(boolean snowy) {return true;}
-//
-//    @ModifyVariable(method = "createBeach", at = @At("HEAD"), ordinal = 0)
-//    private static boolean beach(boolean snowy) {return true;}
-//
-//    @ModifyVariable(method = "createTaiga", at = @At("HEAD"), ordinal = 0)
-//    private static boolean taiga(boolean cold) {return true;}
-//
-//    @ModifyVariable(method = "createRiver", at = @At("HEAD"), ordinal = 0)
-//    private static boolean river(boolean frozen) {return true;}
-
     @ModifyArgs(method = "createBiome(Lnet/minecraft/world/biome/Biome$Precipitation;Lnet/minecraft/world/biome/Biome$Category;FFLnet/minecraft/world/biome/SpawnSettings$Builder;Lnet/minecraft/world/biome/GenerationSettings$Builder;Lnet/minecraft/sound/MusicSound;)Lnet/minecraft/world/biome/Biome;", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/biome/OverworldBiomeCreator;createBiome(Lnet/minecraft/world/biome/Biome$Precipitation;Lnet/minecraft/world/biome/Biome$Category;FFIILnet/minecraft/world/biome/SpawnSettings$Builder;Lnet/minecraft/world/biome/GenerationSettings$Builder;Lnet/minecraft/sound/MusicSound;)Lnet/minecraft/world/biome/Biome;"))
     private static void Biome(Args args)
     {
@@ -56,6 +44,4 @@ public class BiomeCreatorMixin {
             args.set(7, generation);
         }
     }
-
-//    @ModifyVariable(method = "createDesert")
 }

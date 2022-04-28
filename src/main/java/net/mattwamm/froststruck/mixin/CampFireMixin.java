@@ -26,10 +26,7 @@ public class CampFireMixin {
     {
         if(state.getBlock() instanceof CampfireBlock)
         {
-
-
             IsolatedRoom room = BlockComponents.ROOM.get(state.getBlock()).getRoom();
-
             if (!world.isClient) {
                 int maxBlockDistance = 40, blockDistance = 0;
                 Boolean sawSky = false;

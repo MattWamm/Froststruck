@@ -6,7 +6,9 @@
   "mixins": [
     "BiomeBuilderMixin",
     "BiomeCreatorMixin",
-    "BuilderAccessor"
+    "BiomeTemperatureInvoker",
+    "BuilderAccessor",
+    "ThreadedAnvilChunkStorageInvoker"
   ],
   "client": [
   ],

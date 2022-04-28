@@ -14,3 +14,4 @@ public interface BuilderAccessor {
     @Accessor("temperature")
     public void setTemp(Float temperature);
 }
+

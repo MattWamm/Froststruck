@@ -1,9 +1,4 @@
-package net.mattwamm.froststruck.tickCallbacks;
-
-import net.fabricmc.fabric.api.event.Event;
-import net.fabricmc.fabric.api.event.EventFactory;
-import net.minecraft.client.util.ClientPlayerTickable;
-import net.minecraft.util.ActionResult;
+package net.mattwamm.froststruck.callbacks;
 
 public interface PlayerEntityCallback {
 
