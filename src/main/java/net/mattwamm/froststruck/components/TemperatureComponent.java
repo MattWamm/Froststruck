@@ -40,6 +40,7 @@ public class TemperatureComponent implements IntComponent, AutoSyncedComponent{
     public void clientTick() {
         Double distance = floor(spawn.getSquaredDistance(provider.getPos()));
         this.ambientTemperature = (int)min(0, -(floor(distance / 5000)));
+        //MinecraftClient.getInstance().player.sendMessage(Text.of(this.ambientTemperature + " Degrees C"), true);
     }
 
     @Override public void readFromNbt(NbtCompound tag)
