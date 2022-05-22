@@ -142,6 +142,6 @@ public final class RoomFinder {
     }
     public static final void ClearPos(int[][][] bounds, int x, int y, int z)
     {
-        bounds[x][y][z/32] &= (1 << (z %32) ^ -1);
+        bounds[x][y][z/32] &= (~(1 << (z % 32)));
     }
 }
