@@ -15,7 +15,6 @@ public class RoomComponent implements BlockComponent{
     public int getValue() {
         return 0;
     }
-
     public IsolatedRoom getRoom()
     {
         return this.room;

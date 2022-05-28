@@ -1,0 +1,3 @@
+accessWidener   v1  named
+#access widener for making the Target class in RenderPhases public
+#accessible  class   net/minecraft/client/render/RenderPhase$Target # als je een class public wil maken die in minecraft zit.

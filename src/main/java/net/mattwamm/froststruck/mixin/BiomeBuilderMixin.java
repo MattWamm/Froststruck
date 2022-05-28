@@ -1,5 +1,7 @@
 package net.mattwamm.froststruck.mixin;
 
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.mattwamm.froststruck.mixin.access.BuilderAccessor;
 import net.minecraft.world.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

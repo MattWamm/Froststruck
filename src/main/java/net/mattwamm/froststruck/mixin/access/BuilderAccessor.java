@@ -1,4 +1,4 @@
-package net.mattwamm.froststruck.mixin;
+package net.mattwamm.froststruck.mixin.access;
 
 import net.minecraft.world.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;

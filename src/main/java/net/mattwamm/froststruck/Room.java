@@ -20,11 +20,6 @@ public class Room {
         world = source.getWorld();
         BlockPos pos = source.getPos();
         Block block;
-
-
-
-
-
     }
 
     private void checkNeighbours(BlockPos pos)

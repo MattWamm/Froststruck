@@ -6,8 +6,11 @@
   "mixins": [
     "BiomeBuilderMixin",
     "BiomeCreatorMixin",
-    "BuilderAccessor",
-    "ThreadedAnvilChunkStorageInvoker"
+    "ClientPlayerEntityMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ThreadedAnvilChunkStorageInvoker",
+    "WeatherRenderMixin",
+    "access.BuilderAccessor"
   ],
   "client": [
   ],

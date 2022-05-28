@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    "WWW",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:spruce_planks"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "froststruck:spruce_sled",
+    "count": 1
+  }
+}

@@ -12,16 +12,11 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.client.world.GeneratorType;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.chunk.Chunk;
 
@@ -29,17 +24,13 @@ public class EventRegistry {
 
     private static final Identifier THERMOMETER_BACKGROUND = new Identifier("froststruck", "textures/hud/hud-thermo-background.png");
     private static final Identifier THERMOMETER_LINE = new Identifier("froststruck", "textures/hud/hud-thermo-line.png");
-
     public static boolean register() {
         ServerTickEvents.END_SERVER_TICK.register(snowTick);
         HudRenderCallback.EVENT.register(hudRender);
         return true;
     }
-
     static ServerTickEvents.EndTick snowTick = server -> {
         ServerWorld world = server.getWorld(ServerWorld.OVERWORLD);
-        if (MinecraftClient.getInstance().player == null)
-            return;
         Iterable<ChunkHolder> chunkSet = ((ThreadedAnvilChunkStorageInvoker) world.getChunkManager().threadedAnvilChunkStorage).invokeEntryIterator();
         if (!world.isRaining()) return;
         for (ChunkHolder holder : chunkSet) {
@@ -51,13 +42,13 @@ public class EventRegistry {
             int chunk_min_y = chunk.getPos().getStartZ();
             //If it can rain here, there is a 1/16 chance of trying to add snow
             if (world.random.nextInt(11) == 0) {
-                BlockPos pos1 = world.getTopPosition(Heightmap.Type.MOTION_BLOCKING,world.getRandomPosInChunk(chunk_min_x,0 ,chunk_min_y,15));
+                BlockPos pos1 = world.getTopPosition(Heightmap.Type.MOTION_BLOCKING, world.getRandomPosInChunk(chunk_min_x, 0, chunk_min_y, 15));
                 //Check if block at position is a snow layer block
                 Block topBlock = world.getBlockState(pos1).getBlock();
                 if (topBlock instanceof PlantBlock) {
                     world.setBlockState(pos1, Blocks.SNOW.getDefaultState().with(SnowBlock.LAYERS, 1));
                 }
-                //TODO: add horizontal spread when block nearby is empty or 2~3 lower
+                //TODO: add horizontal spread when block nearby is empty or 2~3 lower recursive so it fills spaces under trees and such
 
                 if (topBlock instanceof SnowBlock) {
                     //Calculate mean surrounding block height
@@ -66,7 +57,7 @@ public class EventRegistry {
                     for (Direction dir : Direction.values()) {
                         if (dir == Direction.UP) continue;
                         if (dir == Direction.DOWN) {
-                            for(int i = 0; i < 7; i++) {
+                            for (int i = 0; i < 7; i++) {
                                 BlockState downCheck = world.getBlockState(pos1.offset(Direction.DOWN, i));
                                 if (downCheck != Blocks.SNOW_BLOCK.getDefaultState()) {
                                     return;
@@ -98,7 +89,6 @@ public class EventRegistry {
             }
         }
     };
-
     private static final HudRenderCallback hudRender = (matrixStack, tickDelta) -> {
         MinecraftClient minecraft = MinecraftClient.getInstance();
         TextRenderer renderer = minecraft.textRenderer;

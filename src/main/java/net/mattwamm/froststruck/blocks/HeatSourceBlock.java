@@ -27,30 +27,18 @@ public class HeatSourceBlock extends BlockWithEntity implements BlockEntityProvi
     public HeatSourceBlock(Settings settings) {
         super(settings);
     }
-
-    @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        assert MinecraftClient.getInstance().player != null;
-        MinecraftClient.getInstance().player.sendMessage(new LiteralText("Fucking bitch!!"), false);
-
-        super.onPlaced(world, pos, state, placer, itemStack);
-    }
-
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new HeatSourceBlockEntity(pos,state);
     }
-
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         // With inheriting from BlockWithEntity this defaults to INVISIBLE, so we need to change that!
         return BlockRenderType.MODEL;
     }
-
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, BlockRegistry.HEAT_SOURCE, HeatSourceBlockEntity::tick);
     }
-
     
 }

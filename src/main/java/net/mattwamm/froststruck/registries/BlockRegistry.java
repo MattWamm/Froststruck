@@ -17,15 +17,10 @@ public class BlockRegistry {
 
     public static BlockEntityType<HeatSourceBlockEntity> HEAT_SOURCE;
     private static final Block HEAT_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool());
-
-
     public static boolean register() {
         HEAT_SOURCE = Registry.register(Registry.BLOCK_ENTITY_TYPE, "froststruck:heat_source", FabricBlockEntityTypeBuilder.create(HeatSourceBlockEntity::new, HEAT_BLOCK).build(null));
         Registry.register(Registry.BLOCK, new Identifier("froststruck", "heat_source"), HEAT_BLOCK);
         Registry.register(Registry.ITEM, new Identifier("froststruck", "heat_source"), new BlockItem(HEAT_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
-
         return true;
     }
-
-
 }
