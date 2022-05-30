@@ -1,4 +1,4 @@
-package net.mattwamm.froststruck.Blocks;
+package net.mattwamm.froststruck.blocks;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

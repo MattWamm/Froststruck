@@ -1,15 +1,16 @@
-package net.mattwamm.froststruck.render.models;
+package net.mattwamm.froststruck.client.render.models;
 
 import com.google.common.collect.ImmutableList;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.mattwamm.froststruck.entities.SledEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.CompositeEntityModel;
 
 import net.minecraft.client.util.math.MatrixStack;
 
+@Environment(EnvType.CLIENT)
 public class SledEntityModel extends CompositeEntityModel<SledEntity>{
     private final ModelPart LeftIron;
     private final ModelPart RightIron;
@@ -35,7 +36,7 @@ public class SledEntityModel extends CompositeEntityModel<SledEntity>{
                 .uv(0, 10).cuboid(6.0F, -3.0F, -12.0F, 1.0F, 1.0F, 2.0F)
                 .uv(0, 3).cuboid(6.0F, -4.0F, -13.0F, 1.0F, 1.0F, 2.0F)
                 .uv(18, 2).cuboid(6.0F, -5.0F, -13.0F, 1.0F, 1.0F, 1.0F) // different
-                .uv(0, 30).cuboid(6.0F, -6.0F, -13.0F, 1.0F, 1.0F, 29.0F), ModelTransform.of(0.0F, 6.0F, 0F, 0.0f, -1.57079633f,0f));
+                .uv(0, 30).cuboid(6.0F, -6.0F, -13.0F, 1.0F, 1.0F, 29.0F), ModelTransform.of(0.0F, 6.0F, 0F, 0.0f, -1.57079633f,0f)); //turns 90 degrees in radians to point it straight
 
         modelPartData.addChild("RightIron", ModelPartBuilder.create().uv(18, 0).cuboid(-7.0F, -5.0F, -13.0F, 1.0F, 1.0F, 1.0F)
                 .uv(0, 0).cuboid(-7.0F, -4.0F, -13.0F, 1.0F, 1.0F, 2.0F)
@@ -46,11 +47,11 @@ public class SledEntityModel extends CompositeEntityModel<SledEntity>{
                 .uv(0, 14).cuboid(-7.0F, -4.0F, -6.0F, 1.0F, 3.0F, 1.0F)
                 .uv(0, 18).cuboid(-7.0F, -4.0F, 3.0F, 1.0F, 3.0F, 1.0F)
                 .uv(16, 14).cuboid(-7.0F, -4.0F, 14.0F, 1.0F, 3.0F, 1.0F)
-                .uv(0, 0).cuboid(-7.0F, -6.0F, -13.0F, 1.0F, 1.0F, 29.0F), ModelTransform.of(0.0F, 6.0F, 0F, 0.0f, -1.57079633f,0f));
+                .uv(0, 0).cuboid(-7.0F, -6.0F, -13.0F, 1.0F, 1.0F, 29.0F), ModelTransform.of(0.0F, 6.0F, 0F, 0.0f, -1.57079633f,0f)); //turns 90 degrees in radians to point it straight
 
-        modelPartData.addChild("Wood", ModelPartBuilder.create().uv(0, 5).cuboid(-8.0F, -5.0F, -9.0F, 3.0F, 1.0F, 6.0F)
-                .uv(0, 3).cuboid(5.0F, -5.0F, -9.0F, 3.0F, 1.0F, 6.0F)                          //? / height in model /
-                .uv(32, 8).cuboid(-8.0F, -5.0F, -3.0F, 16.0F, 1.0F, 19.0F), ModelTransform.of(0.0F, 6.0F, 0F, 0.0f, -1.57079633f,0f)); //turns 90 degrees in radians to point it straight
+        modelPartData.addChild("Wood", ModelPartBuilder.create().uv(0, 7).cuboid(-8.0F, -5.0F, -9.0F, 3.0F, 1.0F, 6.0F)
+                .uv(0, 0).cuboid(5.0F, -5.0F, -9.0F, 3.0F, 1.0F, 6.0F)                          //? / height in model /
+                .uv(31, 0).cuboid(-8.0F, -5.0F, -3.0F, 16.0F, 1.0F, 19.0F), ModelTransform.of(0.0F, 6.0F, 0F, 0.0f, -1.57079633f,0f)); //turns 90 degrees in radians to point it straight
 
         return TexturedModelData.of(modelData, 128, 128);
     }

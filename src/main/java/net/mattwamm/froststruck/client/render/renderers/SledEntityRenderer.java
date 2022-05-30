@@ -1,11 +1,13 @@
-package net.mattwamm.froststruck.render.renderers;
+package net.mattwamm.froststruck.client.render.renderers;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.mattwamm.froststruck.Froststruck;
 import net.mattwamm.froststruck.client.FroststruckClient;
 import net.mattwamm.froststruck.entities.SledEntity;
-import net.mattwamm.froststruck.render.models.SledEntityModel;
+import net.mattwamm.froststruck.client.render.models.SledEntityModel;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -19,14 +21,13 @@ import net.minecraft.util.math.Vec3f;
 import java.util.Map;
 import java.util.stream.Stream;
 
+@Environment(EnvType.CLIENT)
 public class SledEntityRenderer extends EntityRenderer<SledEntity> {
-    private static final String MAIN = "layer0";
-    public static final Identifier TEXTURE = new Identifier(Froststruck .MODID, "textures/entity/sled/oak.png");
     private final Map<SledEntity.Type, Pair<Identifier, SledEntityModel>> texturesAndModels;
     public SledEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx);
         this.shadowRadius = 0.8f;
-        this.texturesAndModels = Stream.of(SledEntity.Type.values()).collect(ImmutableMap.toImmutableMap(type -> type, sledType -> Pair.of(new Identifier("textures/entity/sled/" + sledType.getName() + ".png"), new SledEntityModel(ctx.getPart(FroststruckClient.SLED_MODEL_LAYER)))));
+        this.texturesAndModels = Stream.of(SledEntity.Type.values()).collect(ImmutableMap.toImmutableMap(type -> type, sledType -> Pair.of(new Identifier(Froststruck.MODID,"textures/entity/sled/" + sledType.getName() + ".png"), new SledEntityModel(ctx.getPart(FroststruckClient.SLED_MODEL_LAYER)))));
     }
 
     @Override

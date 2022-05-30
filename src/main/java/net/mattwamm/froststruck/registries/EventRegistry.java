@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.mattwamm.froststruck.components.EntityComponents;
 import net.mattwamm.froststruck.items.Thermometer;
-import net.mattwamm.froststruck.mixin.ThreadedAnvilChunkStorageInvoker;
+import net.mattwamm.froststruck.mixin.access.ThreadedAnvilChunkStorageInvoker;
 import net.minecraft.block.*;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;

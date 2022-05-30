@@ -1,4 +1,4 @@
-package net.mattwamm.froststruck.mixin;
+package net.mattwamm.froststruck.mixin.access;
 
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerChunkManager;

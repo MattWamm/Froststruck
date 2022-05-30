@@ -1,6 +1,6 @@
 package net.mattwamm.froststruck.util;
 
-import net.mattwamm.froststruck.Blocks.AbstractHeatBlock;
+import net.mattwamm.froststruck.blocks.AbstractHeatBlock;
 import net.mattwamm.froststruck.Blocks.HeatBlock;
 import net.mattwamm.froststruck.Room;
 import net.mattwamm.froststruck.components.RoomComponent;
