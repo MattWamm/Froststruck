@@ -8,6 +8,7 @@ import net.mattwamm.froststruck.Froststruck;
 import net.mattwamm.froststruck.client.FroststruckClient;
 import net.mattwamm.froststruck.entities.SledEntity;
 import net.mattwamm.froststruck.client.render.models.SledEntityModel;
+import net.mattwamm.froststruck.registries.EntityRegistry;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -27,9 +28,8 @@ public class SledEntityRenderer extends EntityRenderer<SledEntity> {
     public SledEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx);
         this.shadowRadius = 0.8f;
-        this.texturesAndModels = Stream.of(SledEntity.Type.values()).collect(ImmutableMap.toImmutableMap(type -> type, sledType -> Pair.of(new Identifier(Froststruck.MODID,"textures/entity/sled/" + sledType.getName() + ".png"), new SledEntityModel(ctx.getPart(FroststruckClient.SLED_MODEL_LAYER)))));
+        this.texturesAndModels = Stream.of(SledEntity.Type.values()).collect(ImmutableMap.toImmutableMap(type -> type, sledType -> Pair.of(new Identifier(Froststruck.MODID,"textures/entity/sled/" + sledType.getName() + ".png"), new SledEntityModel(ctx.getPart(EntityRegistry.createSled(sledType))))));
     }
-
     @Override
     public void render(SledEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         matrices.push();
@@ -57,8 +57,4 @@ public class SledEntityRenderer extends EntityRenderer<SledEntity> {
     public Identifier getTexture(SledEntity sledEntity) {
         return this.texturesAndModels.get(sledEntity.getSledType()).getFirst();
     }
-
-
-
-
 }

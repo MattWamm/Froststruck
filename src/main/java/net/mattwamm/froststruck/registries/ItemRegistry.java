@@ -30,25 +30,21 @@ public class ItemRegistry {
             {
                 if(slot.getName().equals("mainhand") || slot.getName().equals("offhand"))
                     continue;
-
                 registerItem(new ArmorItem(InsulatedArmorMaterials.valueOf( armor.getName().toUpperCase() + "_WOOL"), slot, new Item.Settings().group(ItemGroup.COMBAT)),armor.getName() + "_wool_" + slot.getName());
                 registerItem(new ArmorItem(InsulatedArmorMaterials.valueOf( armor.getName().toUpperCase() + "_LAMA"), slot, new Item.Settings().group(ItemGroup.COMBAT)),armor.getName() + "_lama_wool_" + slot.getName());
                 registerItem(new ArmorItem(InsulatedArmorMaterials.valueOf(armor.getName().toUpperCase() + "_DOWN"), slot, new Item.Settings().group(ItemGroup.COMBAT)),armor.getName() + "_down_" + slot.getName());
-
             }
         }
-
         OAK_SLED = registerItem(new SledItem(SledEntity.Type.OAK, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "oak_sled");
-//        SPRUCE_SLED = registerItem(new SledItem(SledEntity.Type.OAK, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "spruce_sled");
-//        BIRCH_SLED = registerItem(new SledItem(SledEntity.Type.OAK, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "birch_sled");
-//        JUNGLE_SLED = registerItem(new SledItem(SledEntity.Type.OAK, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "jungle_sled");
-//        ACACIA_SLED = registerItem(new SledItem(SledEntity.Type.OAK, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "acacia_sled");
-//        DARK_OAK_SLED = registerItem(new SledItem(SledEntity.Type.OAK, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "dark_oak_sled");
+        SPRUCE_SLED = registerItem(new SledItem(SledEntity.Type.SPRUCE, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "spruce_sled");
+        BIRCH_SLED = registerItem(new SledItem(SledEntity.Type.BIRCH, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "birch_sled");
+        JUNGLE_SLED = registerItem(new SledItem(SledEntity.Type.JUNGLE, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "jungle_sled");
+        ACACIA_SLED = registerItem(new SledItem(SledEntity.Type.ACACIA, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "acacia_sled");
+        DARK_OAK_SLED = registerItem(new SledItem(SledEntity.Type.DARK_OAK, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION)), "dark_oak_sled");
         THERMOMETER = registerItem(new Thermometer(new Item.Settings().maxCount(1).group(ItemGroup.MISC)), "thermometer");
     }
 
     private static Item registerItem(Item item, String name) {
-        Registry.register(Registry.ITEM, Froststruck.MODID + ":" + name, item);
-        return item;
+        return Registry.register(Registry.ITEM, Froststruck.MODID + ":" + name, item);
     }
 }

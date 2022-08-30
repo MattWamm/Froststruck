@@ -12,8 +12,6 @@ import net.minecraft.util.Identifier;
 @Environment(EnvType.CLIENT)
 public class FroststruckClient implements ClientModInitializer {
 
-    public static final EntityModelLayer SLED_MODEL_LAYER = new EntityModelLayer(new Identifier(Froststruck.MODID,"sled/oak"), "main");
-
     @Override
     public void onInitializeClient() {
         EntityRegistry.Register();

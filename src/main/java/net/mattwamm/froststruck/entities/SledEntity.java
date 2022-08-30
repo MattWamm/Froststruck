@@ -90,6 +90,8 @@ public class SledEntity extends Entity {
         this.prevZ = z;
         this.stepHeight = 0.6f;
     }
+
+
     public void setSledType(SledEntity.Type type) {
         this.dataTracker.set(SLED_TYPE, type.ordinal());
     }

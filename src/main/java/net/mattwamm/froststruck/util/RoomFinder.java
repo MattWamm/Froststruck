@@ -1,10 +1,8 @@
 package net.mattwamm.froststruck.util;
 
-import net.mattwamm.froststruck.blocks.AbstractHeatBlock;
 import net.mattwamm.froststruck.Blocks.HeatBlock;
 import net.mattwamm.froststruck.Room;
 import net.mattwamm.froststruck.components.RoomComponent;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.LiteralText;

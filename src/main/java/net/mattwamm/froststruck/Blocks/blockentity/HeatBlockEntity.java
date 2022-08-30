@@ -1,4 +1,4 @@
-package net.mattwamm.froststruck.Blocks.blockentity;
+package net.mattwamm.froststruck.blocks.blockentity;
 
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import net.mattwamm.froststruck.components.IntComponent;
